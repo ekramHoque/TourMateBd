@@ -74,7 +74,7 @@ TourMateBD/<br>
 ├── README.md # Project documentation<br>
 ├── Database.md<br>
 
-h
+
 ## Setup Instructions
 
 ### Prerequisites:
@@ -156,7 +156,7 @@ The application uses a MySQL database named `TourMateBD`.
   - `bookings`
   - `pdf_logs`
 
-> 📄 For detailed schema information and SQL table creation statements, see [`database.md`](database.md) in the project root.
+> 📄 For detailed schema information and SQL table creation statements, see [`Database.md`](Database.md) in the project root.
 
 ---
 
@@ -165,10 +165,10 @@ The application uses a MySQL database named `TourMateBD`.
 This project was developed as a **Final Year Java Project** by the following team members:
 
 - **Ekramul Hoque**
-  - 📧 Email: asifrahman@example.com
+  - 📧 Email: bsse1628@iit.du.ac.bd
 
 - **Rokib Ikbal**
-  - 📧 Email: tanvirhasan@example.com
+  - 📧 Email: bsse1605@iit.du.ac.bd
 
 > For any inquiries related to this project, feel free to reach out to the contributors via email.
 
