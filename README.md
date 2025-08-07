@@ -160,9 +160,9 @@ The application uses a MySQL database named `TourMateBD`.
 
 ---
 
-## Contributors
+## Contributing
 
-This project was developed as a **Final Year Java Project** by the following team members:
+This project was developed as a **1st Year 2nd Semester Java Project** by the following team members:
 
 - **Ekramul Hoque**
   - 📧 Email: bsse1628@iit.du.ac.bd
