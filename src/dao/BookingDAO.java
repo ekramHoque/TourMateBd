@@ -52,27 +52,34 @@ public class BookingDAO {
     public List<Object[]> getAllBookings(String filter) {
         List<Object[]> bookings = new ArrayList<>();
         String sql = "SELECT id, user_id, tour_place_id, hotel_id, room_id, status, booking_date FROM bookings";
-        System.out.println("Executing SQL: " + sql);
         try (Connection conn = new DBConnection().connect();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    Object[] booking = {rs.getInt("id"), rs.getInt("user_id"), rs.getInt("tour_place_id"),
-                            rs.getInt("hotel_id"), rs.getInt("room_id"), rs.getString("status"), rs.getTimestamp("booking_date")};
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                String status = rs.getString("status");
+                if (filter.equals("All") || status.equalsIgnoreCase(filter)) {
+                    Object[] booking = {
+                            rs.getInt("id"),
+                            rs.getInt("user_id"),
+                            rs.getInt("tour_place_id"),
+                            rs.getInt("hotel_id"),
+                            rs.getInt("room_id"),
+                            status,
+                            rs.getTimestamp("booking_date")
+                    };
                     bookings.add(booking);
-                    System.out.println("Found booking: ID=" + rs.getInt("id") + ", User ID=" + rs.getInt("user_id") +
-                            ", Tour Place ID=" + rs.getInt("tour_place_id") + ", Hotel ID=" + rs.getInt("hotel_id") +
-                            ", Room ID=" + rs.getInt("room_id") + ", Status=" + rs.getString("status") +
-                            ", Booking Date=" + rs.getTimestamp("booking_date"));
                 }
             }
+
         } catch (SQLException e) {
             System.err.println("Error fetching all bookings: " + e.getMessage());
             e.printStackTrace();
         }
-        System.out.println("Total bookings retrieved: " + bookings.size());
+
         return bookings;
     }
+
 
     public boolean createBooking(int userId, int tourPlaceId, int hotelId, int roomId, String bookingDate, String status) {
         String sql = "INSERT INTO bookings (user_id, tour_place_id, hotel_id, room_id, booking_date, status) VALUES (?, ?, ?, ?, ?, ?)";

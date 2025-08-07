@@ -51,14 +51,14 @@ public class AdminPanelUI extends JFrame {
         mainPanel.setBackground(new Color(3, 252, 236));
         mainPanel.setLayout(new BorderLayout());
 
-        // Left Panel (Menu)
+        // Left Panel
         JPanel menuPanel = new JPanel(new GridBagLayout());
         menuPanel.setOpaque(false);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.anchor = GridBagConstraints.NORTH;
 
-        // Admin Panel label
+
         JLabel adminLabel = new JLabel("Admin Menu", SwingConstants.CENTER);
         adminLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         adminLabel.setForeground(Color.BLACK);
@@ -66,7 +66,7 @@ public class AdminPanelUI extends JFrame {
         gbc.gridy = 0;
         menuPanel.add(adminLabel, gbc);
 
-        // Buttons
+
         String[] options = {
                 "Add Tour Places", "Add Hotel", "Add Room",
                 "View/Manage Users", "View/Manage Bookings",
@@ -75,7 +75,7 @@ public class AdminPanelUI extends JFrame {
         JButton[] buttons = new JButton[options.length];
         for (int i = 0; i < options.length; i++) {
             buttons[i] = new JButton(options[i]);
-            buttons[i].setBackground(new Color(0, 0, 255)); // Blue background
+            buttons[i].setBackground(new Color(0, 0, 255));
             buttons[i].setForeground(Color.WHITE);
             buttons[i].setFont(new Font("Segoe UI", Font.BOLD, 16));
             buttons[i].setPreferredSize(new Dimension(200, 40));
@@ -87,7 +87,7 @@ public class AdminPanelUI extends JFrame {
             menuPanel.add(buttons[i], gbc);
         }
 
-        // Right Panel (Content)
+        // Right Panel
         contentPanel = new JPanel(new GridBagLayout());
         contentPanel.setOpaque(false);
         contentPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -107,9 +107,9 @@ public class AdminPanelUI extends JFrame {
 
     private void handleOptionClick(JButton button, String option) {
         if (selectedButton != null) {
-            selectedButton.setBackground(new Color(0, 0, 255)); // Reset to blue
+            selectedButton.setBackground(new Color(0, 0, 255));
         }
-        button.setBackground(new Color(0, 51, 102)); // Darker blue for selected
+        button.setBackground(new Color(0, 51, 102));
         selectedButton = button;
 
         contentPanel.removeAll();
@@ -118,7 +118,7 @@ public class AdminPanelUI extends JFrame {
         contentGbc.gridx = 0;
         contentGbc.gridy = 0;
         contentGbc.anchor = GridBagConstraints.CENTER;
-        contentGbc.fill = GridBagConstraints.NONE; // Prevent stretching
+        contentGbc.fill = GridBagConstraints.NONE;
         switch (option) {
             case "Add Tour Places":
                 showAddTourPlacesForm(contentGbc);
@@ -415,7 +415,7 @@ public class AdminPanelUI extends JFrame {
                 if (bookingDAO.updateBookingStatus(bookingId, newStatus)) {
                     JOptionPane.showMessageDialog(this, "Booking status updated to " + newStatus + "!");
                     updateBookingsList(bookingsArea, (String) filterCombo.getSelectedItem());
-                    bookingIdField.setText(""); // Clear field after success
+                    bookingIdField.setText("");
                 } else {
                     JOptionPane.showMessageDialog(this, "Error updating booking status. Check if the Booking ID exists.");
                 }

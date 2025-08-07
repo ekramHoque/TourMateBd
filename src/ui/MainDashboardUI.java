@@ -275,20 +275,20 @@ public class MainDashboardUI extends JFrame {
         wrapper.setBackground(Color.BLACK);
         wrapper.setOpaque(false);
 
-        // Tour Place selection
+
         JLabel placeLabel = new JLabel("Select Tour Place:");
         String[] placeNames = tourPlaceDAO.getTourPlaces();
         JComboBox<String> placeCombo = new JComboBox<>(placeNames.length > 0 ? placeNames : new String[]{"No places available"});
-        // Hotel selection
+
         JLabel hotelLabel = new JLabel("Select Hotel:");
         JComboBox<String> hotelCombo = new JComboBox<>();
-        // Room selection
+
         JLabel roomLabel = new JLabel("Select Room: TYPE - PRICE PER NIGHT - CAPACITY");
         JComboBox<String> roomCombo = new JComboBox<>();
-        // Date selection
+
         JLabel dateLabel = new JLabel("Select Date (YYYY-MM-DD):");
         JTextField dateField = new JTextField(10);
-        // Book button
+
         JButton bookButton = new JButton("Book");
         bookButton.setBackground(Color.BLUE);
         bookButton.setForeground(Color.WHITE);
@@ -316,7 +316,7 @@ public class MainDashboardUI extends JFrame {
         innerGbc.gridy = 8;
         wrapper.add(bookButton, innerGbc);
 
-        // Add listeners
+
         placeCombo.addActionListener(e -> {
             System.out.println("Place combo action triggered. Selected: " + placeCombo.getSelectedItem());
             SwingUtilities.invokeLater(() -> {
