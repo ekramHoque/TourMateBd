@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import controller.UserController;
 import model.User;
-import dao.UserDAO; // Added to access getUserId
+import dao.UserDAO;
 
 public class LoginUI extends JFrame {
     private UserController userController;
@@ -14,7 +14,7 @@ public class LoginUI extends JFrame {
     public LoginUI(UserController userController, boolean isAdminLogin) {
         this.userController = userController;
         this.isAdminLogin = isAdminLogin;
-        this.userDAO = new UserDAO(); // Initialize UserDAO
+        this.userDAO = new UserDAO();
         initializeUI();
     }
 

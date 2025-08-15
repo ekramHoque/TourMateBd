@@ -431,7 +431,7 @@ public class MainDashboardUI extends JFrame {
             if (hotelId != -1) {
                 List<Object[]> rooms = roomDAO.getRoomsByHotelId(hotelId);
                 for (Object[] room : rooms) {
-                    roomCombo.addItem((String) room[1]); // room_type - price - capacity
+                    roomCombo.addItem((String) room[1]);
                 }
             }
             if (roomCombo.getItemCount() == 0) roomCombo.addItem("No rooms available");

@@ -94,7 +94,7 @@ public class RegistrationUI extends JFrame {
         gbc.gridy++;
         formPanel.add(backToHomeButton, gbc);
 
-        // Add form panel to center of background
+
         backgroundPanel.add(formPanel);
 
         // Action Listeners
@@ -127,13 +127,7 @@ public class RegistrationUI extends JFrame {
         });
     }
 
-    /**
-     * Checks if all required fields are filled.
-     * @param nameField The name text field.
-     * @param emailField The email text field.
-     * @param passwordField The password field.
-     * @return true if all fields are filled, false otherwise.
-     */
+
     private boolean areFieldsFilled(JTextField nameField, JTextField emailField, JPasswordField passwordField) {
         String name = nameField.getText().trim();
         String email = emailField.getText().trim();
