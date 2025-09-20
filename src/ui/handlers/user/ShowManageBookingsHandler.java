@@ -63,7 +63,7 @@ public class ShowManageBookingsHandler implements DashboardActionHandler {
         innerGbc.gridy = 7; wrapper.add(dateField, innerGbc);
         innerGbc.gridy = 8; wrapper.add(bookButton, innerGbc);
 
-        // Listeners
+
         placeCombo.addActionListener(e -> {
             hotelCombo.removeAllItems();
             String selectedPlace = (String) placeCombo.getSelectedItem();

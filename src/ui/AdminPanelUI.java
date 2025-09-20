@@ -1,4 +1,4 @@
-// src/ui/AdminPanelUI.java
+
 package ui;
 
 import ui.handlers.DashboardActionHandler;

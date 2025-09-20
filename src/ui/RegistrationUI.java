@@ -30,7 +30,7 @@ public class RegistrationUI extends JFrame {
         backgroundPanel.setLayout(new GridBagLayout());
         setContentPane(backgroundPanel);
 
-        // Form panel
+
         JPanel formPanel = new JPanel();
         formPanel.setOpaque(false);
         formPanel.setLayout(new GridBagLayout());
@@ -38,7 +38,7 @@ public class RegistrationUI extends JFrame {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Components
+
         JLabel nameLabel = new JLabel("Name:");
         JTextField nameField = new JTextField(20);
 
@@ -51,7 +51,7 @@ public class RegistrationUI extends JFrame {
         JButton registerButton = new JButton("Register");
         JButton backToHomeButton = new JButton("Back to Home");
 
-        // Font
+
         Font font = new Font("Segoe UI", Font.BOLD, 16);
         nameLabel.setFont(font);
         nameField.setFont(font);
@@ -62,7 +62,7 @@ public class RegistrationUI extends JFrame {
         registerButton.setFont(font);
         backToHomeButton.setFont(font);
 
-        // Button styling
+
         Color blue = Color.BLUE; // Dodger Blue
         registerButton.setBackground(blue);
         registerButton.setForeground(Color.WHITE);
@@ -76,7 +76,7 @@ public class RegistrationUI extends JFrame {
         backToHomeButton.setOpaque(true);
         backToHomeButton.setBorderPainted(false);
 
-        // Add components to form panel
+
         gbc.gridx = 0; gbc.gridy = 0;
         formPanel.add(nameLabel, gbc);
         gbc.gridy++;
@@ -94,10 +94,10 @@ public class RegistrationUI extends JFrame {
         gbc.gridy++;
         formPanel.add(backToHomeButton, gbc);
 
-        // Add form panel to center of background
+
         backgroundPanel.add(formPanel);
 
-        // Action Listeners
+
         registerButton.addActionListener(e -> {
             if (!areFieldsFilled(nameField, emailField, passwordField)) {
                 return;
@@ -111,7 +111,7 @@ public class RegistrationUI extends JFrame {
                 return;
             }
 
-            User user = new User(0, name, email, password); // id=0, isAdmin=false by default
+            User user = new User(0, name, email, password);
             if (userController.handleRegistration(user)) {
                 JOptionPane.showMessageDialog(this, "Registration successful", "Success", JOptionPane.INFORMATION_MESSAGE);
                 dispose();
@@ -127,13 +127,7 @@ public class RegistrationUI extends JFrame {
         });
     }
 
-    /**
-     * Checks if all required fields are filled.
-     * @param nameField The name text field.
-     * @param emailField The email text field.
-     * @param passwordField The password field.
-     * @return true if all fields are filled, false otherwise.
-     */
+
     private boolean areFieldsFilled(JTextField nameField, JTextField emailField, JPasswordField passwordField) {
         String name = nameField.getText().trim();
         String email = emailField.getText().trim();

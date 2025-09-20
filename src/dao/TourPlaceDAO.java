@@ -109,10 +109,10 @@ public class TourPlaceDAO {
                 int id = rs.getInt("id");
                 if (currentId != id) {
                     if (currentPlace != null) {
-                        currentPlace[6] = photos.toArray(new String[0]); // Store up to 3 photos
+                        currentPlace[6] = photos.toArray(new String[0]);
                         tourPlaces.add(currentPlace);
                     }
-                    currentPlace = new Object[7]; // id, name, description, address, latitude, longitude, photos[]
+                    currentPlace = new Object[7];
                     currentPlace[0] = id;
                     currentPlace[1] = rs.getString("name");
                     currentPlace[2] = rs.getString("description");
@@ -138,23 +138,4 @@ public class TourPlaceDAO {
         return tourPlaces;
     }
 
-    public List<Object[]> searchTourPlaces(String searchTerm) {
-        List<Object[]> tourPlaces = new ArrayList<>();
-        String sql = "SELECT id, name, address FROM tour_places WHERE name LIKE ? OR address LIKE ?";
-        try (Connection conn = dbConnection.connect();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, "%" + searchTerm + "%");
-            stmt.setString(2, "%" + searchTerm + "%");
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    Object[] place = {rs.getInt("id"), rs.getString("name"), rs.getString("address")};
-                    tourPlaces.add(place);
-                }
-            }
-        } catch (SQLException e) {
-            System.err.println("Error searching tour places: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return tourPlaces;
-    }
 }

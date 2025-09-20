@@ -4,17 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import controller.UserController;
 import model.User;
-import dao.UserDAO; // Added to access getUserId
+import dao.UserDAO;
 
 public class LoginUI extends JFrame {
     private UserController userController;
     private boolean isAdminLogin;
-    private UserDAO userDAO; // Added to fetch userId
+    private UserDAO userDAO;
 
     public LoginUI(UserController userController, boolean isAdminLogin) {
         this.userController = userController;
         this.isAdminLogin = isAdminLogin;
-        this.userDAO = new UserDAO(); // Initialize UserDAO
+        this.userDAO = new UserDAO();
         initializeUI();
     }
 
@@ -34,7 +34,7 @@ public class LoginUI extends JFrame {
         backgroundPanel.setLayout(new GridBagLayout());
         setContentPane(backgroundPanel);
 
-        // Form panel
+
         JPanel formPanel = new JPanel();
         formPanel.setOpaque(false);
         formPanel.setLayout(new GridBagLayout());
@@ -42,7 +42,7 @@ public class LoginUI extends JFrame {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        // Components
+
         JLabel emailLabel = new JLabel("Email:");
         JTextField emailField = new JTextField(20);
 
@@ -52,7 +52,7 @@ public class LoginUI extends JFrame {
         JButton loginButton = new JButton("Login");
         JButton backToHomeButton = new JButton("Back to Home");
 
-        // Font suggestion: Segoe UI
+
         Font font = new Font("Segoe UI", Font.BOLD, 16);
         emailLabel.setFont(font);
         emailField.setFont(font);
@@ -61,8 +61,8 @@ public class LoginUI extends JFrame {
         loginButton.setFont(font);
         backToHomeButton.setFont(font);
 
-        // Button styling: blue background, white text
-        Color blue = Color.BLUE; // Dodger Blue
+
+        Color blue = Color.BLUE;
         loginButton.setBackground(blue);
         loginButton.setForeground(Color.WHITE);
         loginButton.setFocusPainted(false);
@@ -75,7 +75,7 @@ public class LoginUI extends JFrame {
         backToHomeButton.setOpaque(true);
         backToHomeButton.setBorderPainted(false);
 
-        // Add components to form panel
+
         gbc.gridx = 0; gbc.gridy = 0;
         formPanel.add(emailLabel, gbc);
         gbc.gridy++;
@@ -91,7 +91,7 @@ public class LoginUI extends JFrame {
 
         backgroundPanel.add(formPanel);
 
-        // Button Actions
+
         loginButton.addActionListener(e -> {
             String email = emailField.getText().trim();
             String password = new String(passwordField.getPassword()).trim();
@@ -104,8 +104,8 @@ public class LoginUI extends JFrame {
             System.out.println("Login attempt: Email = " + email + ", Password = " + password + ", isAdminLogin = " + isAdminLogin);
             if (userController.handleLogin(email, password, isAdminLogin)) {
                 dispose();
-                int userId = userDAO.getUserId(email); // Fetch userId after successful login
-                if (userId != -1) { // Assuming -1 indicates user not found
+                int userId = userDAO.getUserId(email);
+                if (userId != -1) {
                     if (isAdminLogin) {
                         new AdminPanelUI().displayAdminPanel();
                     } else {

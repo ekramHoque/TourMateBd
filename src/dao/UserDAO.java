@@ -40,12 +40,12 @@ public class UserDAO {
 
     public User getUserByEmail(String email) {
         String sql = "SELECT * FROM users WHERE email = ?";
-        System.out.println("Executing query for email: " + (email != null ? email : "null")); // Log the input
+        System.out.println("Executing query for email: " + (email != null ? email : "null"));
         try (Connection conn = dbConnection.connect();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             if (email != null) {
-                System.out.println("Setting parameter 1 to: " + email); // Log before setting
-                stmt.setString(1, email); // Explicitly set the parameter
+                System.out.println("Setting parameter 1 to: " + email);
+                stmt.setString(1, email);
                 System.out.println("Parameter set, executing query...");
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()) {
@@ -100,6 +100,6 @@ public class UserDAO {
             System.err.println("Error fetching user ID: " + e.getMessage());
             e.printStackTrace();
         }
-        return -1; // Return -1 if user not found or error occurs
+        return -1;
     }
 }

@@ -31,8 +31,6 @@ public class ShowBookingsHandler implements DashboardActionHandler {
             bookingsArea.append("No bookings found.\n");
         } else {
             for (Object[] b : bookings) {
-                // b[0]=booking_id, b[1]=tour_place_name, b[2]=hotel_name, b[3]=room_type
-                // b[4]=status, b[5]=booking_date
                 bookingsArea.append(
                         "Booking ID: " + b[0] + "\n" +
                                 "Tour Place: " + b[1] + "\n" +

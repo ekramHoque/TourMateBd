@@ -12,7 +12,7 @@ public class User {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.isAdmin = false; // Default to non-admin
+        this.isAdmin = false;
     }
 
     // Getters and Setters
@@ -24,6 +24,6 @@ public class User {
     public void setEmail(String email) { this.email = email; }
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
-    public boolean isAdmin() { return isAdmin; } // New method to check admin status
-    public void setAdmin(boolean isAdmin) { this.isAdmin = isAdmin; } // Setter for admin status
+    public boolean isAdmin() { return isAdmin; }
+    public void setAdmin(boolean isAdmin) { this.isAdmin = isAdmin; }
 }

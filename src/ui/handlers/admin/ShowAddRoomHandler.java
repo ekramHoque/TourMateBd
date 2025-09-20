@@ -44,7 +44,7 @@ public class ShowAddRoomHandler implements DashboardActionHandler {
             String price = priceField.getText().trim();
             String capacity = capacityField.getText().trim();
 
-            // Validation: check if any field is empty
+
             if (selectedHotel == null || selectedHotel.isEmpty() ||
                     roomType.isEmpty() || price.isEmpty() || capacity.isEmpty()) {
                 JOptionPane.showMessageDialog(contentPanel, "Please fill in all fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
@@ -54,7 +54,6 @@ public class ShowAddRoomHandler implements DashboardActionHandler {
             int hotelId = hotelDAO.getHotelId(selectedHotel);
             if (hotelId != -1 && roomDAO.saveRoom(hotelId, roomType, price, capacity)) {
                 JOptionPane.showMessageDialog(contentPanel, "Room added successfully!");
-                // Optionally clear fields after saving
                 roomTypeField.setText("");
                 priceField.setText("");
                 capacityField.setText("");

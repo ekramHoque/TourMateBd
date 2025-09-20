@@ -21,10 +21,10 @@ public class HomePageUI extends JFrame {
 
         JPanel panel = new JPanel();
         panel.setBackground(new Color(3, 252, 236));
-        panel.setLayout(new GridBagLayout()); // Use GridBagLayout for better control
+        panel.setLayout(new GridBagLayout());
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10); // Padding around components
+        gbc.insets = new Insets(10, 10, 10, 10);
         gbc.anchor = GridBagConstraints.CENTER;
 
         // Welcome label
@@ -42,7 +42,7 @@ public class HomePageUI extends JFrame {
         userLoginButton.setForeground(Color.WHITE);
         userLoginButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
         userLoginButton.setFocusPainted(false);
-        userLoginButton.setPreferredSize(new Dimension(250, 40)); // Reduced width to 150px, height 40px
+        userLoginButton.setPreferredSize(new Dimension(250, 40));
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1; // Reset to single column
@@ -54,7 +54,7 @@ public class HomePageUI extends JFrame {
         adminLoginButton.setBackground(Color.BLUE);
         adminLoginButton.setForeground(Color.WHITE);
         adminLoginButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        adminLoginButton.setPreferredSize(new Dimension(250, 40)); // Reduced width to 150px
+        adminLoginButton.setPreferredSize(new Dimension(250, 40));
         gbc.gridx = 1;
         gbc.gridy = 1;
         panel.add(adminLoginButton, gbc);
@@ -65,7 +65,7 @@ public class HomePageUI extends JFrame {
         userRegistrationButton.setBackground(Color.BLUE);
         userRegistrationButton.setForeground(Color.WHITE);
         userRegistrationButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        userRegistrationButton.setPreferredSize(new Dimension(250, 40)); // Reduced width to 150px
+        userRegistrationButton.setPreferredSize(new Dimension(250, 40));
         gbc.gridx = 2;
         gbc.gridy = 1;
         panel.add(userRegistrationButton, gbc);
@@ -80,8 +80,7 @@ public class HomePageUI extends JFrame {
         dispose();
         LoginUI loginUI = new LoginUI(userController, false);
         loginUI.displayLogin();
-        // Additional feature: Notification on login failure
-        // Future implementation: Use NotificationUI for errors
+
     }
 
     private void openAdminLogin() {

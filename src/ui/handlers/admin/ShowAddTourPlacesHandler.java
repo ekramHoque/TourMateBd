@@ -57,7 +57,7 @@ public class ShowAddTourPlacesHandler implements DashboardActionHandler {
             String photo2 = photo2Field.getText().trim();
             String photo3 = photo3Field.getText().trim();
 
-            // Validation: check required fields
+
             if (name.isEmpty() || description.isEmpty() || address.isEmpty() ||
                     latitude.isEmpty() || longitude.isEmpty()) {
                 JOptionPane.showMessageDialog(contentPanel, "Please fill in all required fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);

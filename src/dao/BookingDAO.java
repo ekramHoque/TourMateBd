@@ -25,29 +25,6 @@ public class BookingDAO {
         return bookings;
     }
 
-//    public List<Object[]> searchBookingsByUserId(int userId, String searchTerm) {
-//        List<Object[]> bookings = new ArrayList<>();
-//        String sql = "SELECT id, user_id, tour_place_id, hotel_id, room_id, status, booking_date FROM bookings WHERE user_id = ? " +
-//                "AND (hotel_id LIKE ? OR room_id LIKE ? OR status LIKE ?)";
-//        try (Connection conn = new DBConnection().connect();
-//             PreparedStatement stmt = conn.prepareStatement(sql)) {
-//            stmt.setInt(1, userId);
-//            stmt.setString(2, "%" + searchTerm + "%");
-//            stmt.setString(3, "%" + searchTerm + "%");
-//            stmt.setString(4, "%" + searchTerm + "%");
-//            try (ResultSet rs = stmt.executeQuery()) {
-//                while (rs.next()) {
-//                    Object[] booking = {rs.getInt("id"), rs.getInt("user_id"), rs.getInt("tour_place_id"),
-//                            rs.getInt("hotel_id"), rs.getInt("room_id"), rs.getString("status"), rs.getTimestamp("booking_date")};
-//                    bookings.add(booking);
-//                }
-//            }
-//        } catch (SQLException e) {
-//            System.err.println("Error searching bookings: " + e.getMessage());
-//            e.printStackTrace();
-//        }
-//        return bookings;
-//    }
 
     public List<Object[]> getAllBookings(String filter) {
         List<Object[]> bookings = new ArrayList<>();

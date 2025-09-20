@@ -121,7 +121,7 @@ public class ShowManageBookingsHandler implements DashboardActionHandler {
             document.close();
             JOptionPane.showMessageDialog(null, "PDF exported as " + fileName + ".pdf");
 
-            // Log to database
+
             try (Connection conn = new DBConnection().connect()) {
                 String sql = "INSERT INTO pdf_logs (user_id, file_name, generated_at) VALUES (?, ?, NOW())";
                 PreparedStatement stmt = conn.prepareStatement(sql);

@@ -1,4 +1,4 @@
-// src/ui/MainDashboardUI.java
+
 package ui;
 
 import ui.handlers.DashboardActionHandler;

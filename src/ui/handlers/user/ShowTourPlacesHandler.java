@@ -20,7 +20,7 @@ public class ShowTourPlacesHandler implements DashboardActionHandler {
         JPanel wrapper = new JPanel(new GridBagLayout());
         wrapper.setOpaque(false);
 
-        // Dropdown for places
+
         String[] placeNames = tourPlaceDAO.getTourPlaces();
         JComboBox<String> placeCombo = new JComboBox<>(placeNames.length > 0 ? placeNames : new String[]{"No places available"});
         JPanel detailsPanel = new JPanel(new GridBagLayout());
@@ -37,7 +37,7 @@ public class ShowTourPlacesHandler implements DashboardActionHandler {
         inner.gridy = 2;
         wrapper.add(detailsPanel, inner);
 
-        // Default (latest place)
+
         List<Object[]> latestPlaces = tourPlaceDAO.getAllTourPlacesWithPhotos();
         if (!latestPlaces.isEmpty()) {
             displayPlaceDetails(detailsPanel, latestPlaces.get(0), new GridBagConstraints());
@@ -45,7 +45,7 @@ public class ShowTourPlacesHandler implements DashboardActionHandler {
             detailsPanel.add(new JLabel("No tour places available"), new GridBagConstraints());
         }
 
-        // Update on selection
+
         placeCombo.addActionListener(e -> {
             String selected = (String) placeCombo.getSelectedItem();
             detailsPanel.removeAll();
@@ -93,7 +93,7 @@ public class ShowTourPlacesHandler implements DashboardActionHandler {
                         imageLabel.setIcon(new ImageIcon(img));
                         System.out.println("Loaded from resources: " + path);
                     } else {
-                        // fallback: load directly from file system
+
                         File f = new File("src/main/resources/" + path);
                         if (f.exists()) {
                             ImageIcon icon = new ImageIcon(f.getAbsolutePath());
@@ -116,7 +116,7 @@ public class ShowTourPlacesHandler implements DashboardActionHandler {
             panel.add(imageLabel, gbc);
         }
 
-        // Styled labels
+
         gbc.gridy = y++;
         JLabel nameLabel = new JLabel("Name: " + place[1]);
         nameLabel.setFont(new Font("Arial", Font.BOLD, 24));

@@ -57,7 +57,6 @@ public class ShowAddHotelHandler implements DashboardActionHandler {
             int placeId = tourPlaceDAO.getTourPlaceId(selectedPlace);
             if (placeId != -1 && hotelDAO.saveHotel(placeId, name, location, description, contact)) {
                 JOptionPane.showMessageDialog(contentPanel, "Hotel added successfully!");
-                // Optionally, clear fields after successful save
                 nameField.setText("");
                 locationField.setText("");
                 descriptionArea.setText("");

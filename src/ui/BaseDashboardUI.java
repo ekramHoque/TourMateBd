@@ -87,7 +87,7 @@ public abstract class BaseDashboardUI extends JFrame {
         contentPanel.repaint();
     }
 
-    // Abstract methods to be implemented by subclasses
+
     protected abstract String getMenuTitle();
     protected abstract String[] getMenuOptions();
     protected abstract void onMenuOptionSelected(String option);
