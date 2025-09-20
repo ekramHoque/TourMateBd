@@ -27,7 +27,7 @@ public class HomePageUI extends JFrame {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.anchor = GridBagConstraints.CENTER;
 
-        // Welcome label
+
         JLabel welcomeLabel = new JLabel("Welcome to TourMateBD", SwingConstants.CENTER);
         welcomeLabel.setFont(new Font("Segoe UI", Font.BOLD, 34));
         welcomeLabel.setForeground(Color.BLACK);
@@ -36,7 +36,7 @@ public class HomePageUI extends JFrame {
         gbc.gridwidth = 3; // Span across all columns
         panel.add(welcomeLabel, gbc);
 
-        // User Login button
+
         JButton userLoginButton = new JButton("User Login");
         userLoginButton.setBackground(Color.BLUE);
         userLoginButton.setForeground(Color.WHITE);
@@ -49,7 +49,7 @@ public class HomePageUI extends JFrame {
         panel.add(userLoginButton, gbc);
         userLoginButton.addActionListener(e -> openUserLogin());
 
-        // Admin Login button
+
         JButton adminLoginButton = new JButton("Admin Login");
         adminLoginButton.setBackground(Color.BLUE);
         adminLoginButton.setForeground(Color.WHITE);
@@ -60,7 +60,7 @@ public class HomePageUI extends JFrame {
         panel.add(adminLoginButton, gbc);
         adminLoginButton.addActionListener(e -> openAdminLogin());
 
-        // User Registration button
+
         JButton userRegistrationButton = new JButton("User Registration");
         userRegistrationButton.setBackground(Color.BLUE);
         userRegistrationButton.setForeground(Color.WHITE);
